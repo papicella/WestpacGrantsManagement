@@ -15,7 +15,7 @@ http://whack-grantsmanagement.mybluemix.net/
 
 ![alt tag](https://dl.dropboxusercontent.com/u/15829935/bluemix-docs/images/whack-1.png)
 
-<h2> RESTfull API calls </h2>
+<h2> RESTful API calls </h2>
 
 - View a single grant by GRANTID
 
