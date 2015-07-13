@@ -1,0 +1,9 @@
+applications:
+- name: whack-grantsmanagement
+  memory: 512M
+  instances: 1
+  host: whack-grantsmanagement
+  domain: mybluemix.net
+  path: ./target/WestpacGrantsManagement-0.0.1-SNAPSHOT.jar
+  services:
+    - mysqlWhack-db 

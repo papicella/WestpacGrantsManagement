@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{welcome.title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2> Westpac Hackathon - Grants Management </h2>
+
+Grants [<span th:text="${grantscount}"/>]
+<br />
+GrantPayments [<span th:text="${grantspaymentcount}"/>]
+<br />
+
+<hr size="2" />
+
+<div th:include="footer :: copy"></div>
+
+</body>
+</html>
