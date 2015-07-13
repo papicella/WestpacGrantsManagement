@@ -39,7 +39,8 @@ curl http://whack-grantsmanagement.mybluemix.net/viewpayments?grantid=2
 
 The API's above have been added to a cloud integration service and visible in the Catalog as private API's within the Organization.
 
-TODO
+The following image shows how you can view Custom Api's such as those above in the catalog
 
+![alt tag](https://dl.dropboxusercontent.com/u/15829935/bluemix-docs/images/whack-2.png)
 
 Pas Apicella [pasapi at au1.ibm.com] is a Bluemix Technical Specialist at IBM Australia
