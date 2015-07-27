@@ -13,4 +13,8 @@ public interface JpaGrantpaymentRepository extends JpaRepository<Grantpayment, S
 {
     @Query("select a from Grantpayment a where a.grantid = ?1")
     List<Grantpayment> findByGrantid(String grantid);
+
+    @Query("select sum(a.paymentamount) from Grantpayment a where a.grantid = ?1")
+    int paymenttotal(String grantid);
+
 }

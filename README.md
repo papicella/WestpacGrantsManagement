@@ -35,6 +35,18 @@ curl http://whack-grantsmanagement.mybluemix.net/grants
 curl http://whack-grantsmanagement.mybluemix.net/viewpayments?grantid=2
 ```
 
+- DELETE a grant payment for a GRANTPAYMENTID
+
+```
+curl http://whack-grantsmanagement.mybluemix.net/deletepayment?grantpaymentid=22
+```
+
+- Sum total payments for a GRANTID
+
+```
+curl http://whack-grantsmanagement.mybluemix.net/paymentsum?grantid=2
+```
+
 <h2> Cloud Integration API's </h2>
 
 The API's above have been added to a cloud integration service and visible in the Catalog as private API's within the Organization.

@@ -34,4 +34,21 @@ public class GrantpaymentRest
 
         return payments;
     }
+
+    @RequestMapping(value = "/deletepayment", method = RequestMethod.GET)
+    public String deleteAlbum(@RequestParam("grantpaymentid") String grantpaymentid)
+    {
+        repository.delete(grantpaymentid);
+        String actionStr = String.format("Grant Payment with [%s] successfully deleted", grantpaymentid);
+
+        return actionStr;
+    }
+
+    @RequestMapping(value = "/paymentsum", method = RequestMethod.GET)
+    public int sumPayments(@RequestParam(value="grantid", required=true) String grantid)
+    {
+        int amt = repository.paymenttotal(grantid);
+
+        return amt;
+    }
 }
