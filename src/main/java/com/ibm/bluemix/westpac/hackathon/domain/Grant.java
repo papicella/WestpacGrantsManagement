@@ -2,10 +2,7 @@ package com.ibm.bluemix.westpac.hackathon.domain;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -27,9 +24,16 @@ public class Grant
     private String providername;
     private int recipientid;
     private String recipientname;
+
+    @Temporal(TemporalType.DATE)
     private Date dateopened;
+
+    @Temporal(TemporalType.DATE)
     private Date dateappclosed;
+
+    @Temporal(TemporalType.DATE)
     private Date dateawarded;
+
     private int grantvalue;
     private String grantawarded;
     private String paymenttype;

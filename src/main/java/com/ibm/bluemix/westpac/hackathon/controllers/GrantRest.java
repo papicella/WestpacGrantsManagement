@@ -5,10 +5,7 @@ import com.ibm.bluemix.westpac.hackathon.repositories.JpaGrantRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -43,4 +40,17 @@ public class GrantRest
         return grant;
     }
 
+    @RequestMapping(value = "/newgrant", method=RequestMethod.POST)
+    public Grant create(@RequestBody Grant grant)
+    {
+        return repository.save(grant);
+    }
+
+    @RequestMapping(value = "/searchgrants", method=RequestMethod.POST)
+    public List<Grant> searchGrants(@RequestParam(value="grantname") String grantname)
+    {
+        List<Grant> grants = (List<Grant>) repository.findByGrantname(grantname);
+
+        return grants;
+    }
 }

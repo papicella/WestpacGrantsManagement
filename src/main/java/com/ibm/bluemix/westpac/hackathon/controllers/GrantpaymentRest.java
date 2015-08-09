@@ -5,10 +5,7 @@ import com.ibm.bluemix.westpac.hackathon.repositories.JpaGrantpaymentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +32,7 @@ public class GrantpaymentRest
         return payments;
     }
 
+    /*
     @RequestMapping(value = "/deletepayment", method = RequestMethod.GET)
     public String deleteAlbum(@RequestParam("grantpaymentid") String grantpaymentid)
     {
@@ -43,6 +41,13 @@ public class GrantpaymentRest
 
         return actionStr;
     }
+    */
+
+    @RequestMapping(value = "/deletepayment/{grantpaymentid}", method = RequestMethod.DELETE)
+    public void deleteAlbum(@PathVariable("grantpaymentid") String grantpaymentid)
+    {
+        repository.delete(grantpaymentid);
+    }
 
     @RequestMapping(value = "/paymentsum", method = RequestMethod.GET)
     public int sumPayments(@RequestParam(value="grantid", required=true) String grantid)
@@ -50,5 +55,11 @@ public class GrantpaymentRest
         int amt = repository.paymenttotal(grantid);
 
         return amt;
+    }
+
+    @RequestMapping(value = "/newgrantpayment", method=RequestMethod.POST)
+    public Grantpayment create(@RequestBody Grantpayment grantpayment)
+    {
+        return repository.save(grantpayment);
     }
 }
