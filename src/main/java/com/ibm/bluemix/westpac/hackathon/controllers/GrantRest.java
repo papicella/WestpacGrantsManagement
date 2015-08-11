@@ -1,6 +1,6 @@
 package com.ibm.bluemix.westpac.hackathon.controllers;
 
-import com.ibm.bluemix.westpac.hackathon.domain.Grant;
+import com.ibm.bluemix.westpac.hackathon.domain.Westpacgrant;
 import com.ibm.bluemix.westpac.hackathon.repositories.JpaGrantRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,32 +25,35 @@ public class GrantRest
     }
 
     @RequestMapping(value = "/grants", method = RequestMethod.GET)
-    public List<Grant> listGrants()
+    public List<Westpacgrant> listGrants()
     {
-        List<Grant> grants = (List<Grant>) repository.findAll();
+        List<Westpacgrant> grants = (List<Westpacgrant>) repository.findAll();
 
         return grants;
     }
 
     @RequestMapping(value = "/viewgrant", method = RequestMethod.GET)
-    public Grant viewGrant(@RequestParam(value="grantid", required=true) String grantid)
+    public Westpacgrant viewGrant(@RequestParam(value="grantid", required=true) String grantid)
     {
-        Grant grant = repository.findOne(grantid);
+        Westpacgrant grant = repository.findOne(grantid);
 
         return grant;
     }
 
     @RequestMapping(value = "/newgrant", method=RequestMethod.POST)
-    public Grant create(@RequestBody Grant grant)
+    public Westpacgrant create(@RequestBody Westpacgrant grant)
     {
         return repository.save(grant);
     }
 
     @RequestMapping(value = "/searchgrants", method=RequestMethod.POST)
-    public List<Grant> searchGrants(@RequestParam(value="grantname") String grantname)
+    public List<Westpacgrant> searchGrants(@RequestParam(value="grantname") String grantname)
     {
-        List<Grant> grants = (List<Grant>) repository.findByGrantname(grantname);
+        List<Westpacgrant> grants = (List<Westpacgrant>) repository.findByGrantname(grantname);
 
         return grants;
     }
+
+    //TODO: Update grant using HTTP PUT method
+
 }

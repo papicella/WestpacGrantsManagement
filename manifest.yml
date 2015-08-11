@@ -4,6 +4,7 @@ applications:
   instances: 1
   host: whack-grantsmanagement
   domain: mybluemix.net
+  buildpack: java_buildpack
   path: ./target/WestpacGrantsManagement-0.0.1-SNAPSHOT.jar
   services:
     - mysqlWhack-db 

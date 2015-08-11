@@ -32,17 +32,6 @@ public class GrantpaymentRest
         return payments;
     }
 
-    /*
-    @RequestMapping(value = "/deletepayment", method = RequestMethod.GET)
-    public String deleteAlbum(@RequestParam("grantpaymentid") String grantpaymentid)
-    {
-        repository.delete(grantpaymentid);
-        String actionStr = String.format("Grant Payment with [%s] successfully deleted", grantpaymentid);
-
-        return actionStr;
-    }
-    */
-
     @RequestMapping(value = "/deletepayment/{grantpaymentid}", method = RequestMethod.DELETE)
     public void deleteAlbum(@PathVariable("grantpaymentid") String grantpaymentid)
     {

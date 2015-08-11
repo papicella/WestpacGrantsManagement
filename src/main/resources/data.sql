@@ -1,4 +1,4 @@
-insert into grant
+insert into westpacgrant
 (grantid,
  grantname,
  grantdescription,
@@ -14,7 +14,7 @@ insert into grant
  paymenttype,
  numberofpayments)
 VALUES
-(1,
+('1',
  'Wheat exploration',
  'Developing drought resistant wheat strains',
  145,
@@ -29,7 +29,7 @@ VALUES
  'Single',
  1);
 
- insert into grant
+ insert into westpacgrant
 (grantid,
  grantname,
  grantdescription,
@@ -45,7 +45,7 @@ VALUES
  paymenttype,
  numberofpayments)
 VALUES
-(2,
+('2',
  'Water reclamation',
  'Reclaiming greay water',
  452,
@@ -70,7 +70,7 @@ insert into grantpayment
  criteriarequired,
  criteriamet)
 VALUES
-(1,
+('1',
  1,
  1,
  500000,
@@ -89,7 +89,7 @@ insert into grantpayment
  criteriarequired,
  criteriamet)
 VALUES
-(2,
+('2',
  2,
  1,
  60000,
@@ -108,7 +108,7 @@ insert into grantpayment
  criteriarequired,
  criteriamet)
 VALUES
-(3,
+('3',
  2,
  2,
  '50000',
@@ -127,7 +127,7 @@ insert into grantpayment
  criteriarequired,
  criteriamet)
 VALUES
-(4,
+('4',
  2,
  3,
  '40000',
