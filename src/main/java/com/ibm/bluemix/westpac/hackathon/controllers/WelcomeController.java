@@ -1,5 +1,6 @@
 package com.ibm.bluemix.westpac.hackathon.controllers;
 
+import com.ibm.bluemix.westpac.hackathon.domain.Westpacgrant;
 import com.ibm.bluemix.westpac.hackathon.repositories.JpaGrantRepository;
 import com.ibm.bluemix.westpac.hackathon.repositories.JpaGrantpaymentRepository;
 import org.slf4j.Logger;
@@ -30,6 +31,9 @@ public class WelcomeController
     {
         model.addAttribute("grantscount", grantRepository.findAll().size());
         model.addAttribute("grantspaymentcount", paymentRepository.findAll().size());
+
+        model.addAttribute("grants", grantRepository.findAll());
+
         return "welcome";
     }
 

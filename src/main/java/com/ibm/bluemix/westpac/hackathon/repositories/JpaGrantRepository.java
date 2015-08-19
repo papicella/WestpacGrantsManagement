@@ -14,4 +14,9 @@ public interface JpaGrantRepository extends JpaRepository<Westpacgrant, String>
     @Query("select a from Westpacgrant a where UPPER(a.grantname) like %?1%")
     List<Westpacgrant> findByGrantname(String grantname);
 
+    @Query("select a from Westpacgrant a where UPPER(a.paymenttype) = 'SINGLE'")
+    List<Westpacgrant> findSinglePaymentGrants();
+
+    @Query("select a from Westpacgrant a where UPPER(a.paymenttype) = 'MULTIPLE'")
+    List<Westpacgrant> findMultiplePaymentGrants();
 }
