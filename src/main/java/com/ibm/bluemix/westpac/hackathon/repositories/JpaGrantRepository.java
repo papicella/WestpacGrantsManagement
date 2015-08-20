@@ -19,4 +19,7 @@ public interface JpaGrantRepository extends JpaRepository<Westpacgrant, String>
 
     @Query("select a from Westpacgrant a where UPPER(a.paymenttype) = 'MULTIPLE'")
     List<Westpacgrant> findMultiplePaymentGrants();
+
+    @Query("select a from Westpacgrant a where a.recipientid = ?1")
+    List<Westpacgrant> findByRecipientId(int id);
 }

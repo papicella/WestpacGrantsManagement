@@ -16,24 +16,9 @@ public class WelcomeController
 {
     private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 
-    private JpaGrantRepository grantRepository;
-    private JpaGrantpaymentRepository paymentRepository;
-
-    @Autowired
-    public WelcomeController(JpaGrantRepository grantRepository, JpaGrantpaymentRepository paymentRepository)
-    {
-        this.grantRepository = grantRepository;
-        this.paymentRepository = paymentRepository;
-    }
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(Model model)
     {
-        model.addAttribute("grantscount", grantRepository.findAll().size());
-        model.addAttribute("grantspaymentcount", paymentRepository.findAll().size());
-
-        model.addAttribute("grants", grantRepository.findAll());
-
         return "welcome";
     }
 

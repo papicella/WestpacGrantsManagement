@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{welcome.title}"></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="images/westpac.png"
+                     th:src="@{images/westpac.png}"
+                     alt="Westpac"
+                     border="0"/>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right  ">
+                <li><a href="/">Home</a></li>
+                <li><a href="#" class="btn">About</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- NAVBAR CODE END -->
+
+<div class="bs-example">
+    <div class="page-header">
+        <h1>Westpac Hackathon <small>Grants Management Grants</small></h1>
+    </div>
+</div>
+
+<div class="bs-example">
+    <form th:action="@{/searchGrants}" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="inputSearch" class="control-label col-xs-2">Recipient Id</label>
+            <div class="col-xs-6">
+                <input type="text" class="form-control" id="inputSearch" name="inputSearch"
+                       placeholder="Search By Recipient ID" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="bs-example">
+    <div class="alert alert-info fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Success!</strong> Found <b th:text="${grantscount}"></b> Grants
+    </div>
+</div>
+
+<p />
+
+<div class="bs-example">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Recipient Name</th>
+            <th>Recipient #ID</th>
+            <th>Amount</th>
+            <th>Funding Date</th>
+            <th>View Payments</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="grant : ${grants}" class="danger">
+            <td th:text="${grant.recipientname}"></td>
+            <td th:text="${grant.recipientid}"></td>
+            <td th:text="'$' + ${grant.grantvalue}"></td>
+            <td th:text="${grant.dateawarded}"></td>
+            <td>
+                <a th:href="'/viewGrantPayments?grantid=' + ${grant.grantid}">
+                    <img src="images/b_props.png"
+                         th:src="@{images/b_props.png}"
+                         alt="View Payments"
+                         border="0"/>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<hr size="2" />
+
+<div th:include="footer :: copy"></div>
+
+</body>
+</html>
